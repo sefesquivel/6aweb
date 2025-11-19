@@ -6,8 +6,8 @@ import { CommonModule } from '@angular/common';
   selector: 'app-data-binding-demo',
   standalone: true,
   imports: [FormsModule, CommonModule],
-  templateUrl: './data-binding-demo.component.html',
-  styleUrl: './data-binding-demo.component.css'
+  templateUrl: './data-binding-demo.html',
+  styleUrl: './data-binding-demo.css'
 })
 export class DataBindingDemoComponent {
     title = "My First App!"
