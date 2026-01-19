@@ -1,0 +1,106 @@
+<h2 class="text-3xl font-bold mb-6 mt-20 text-center">
+  EMPLOYEES LIST
+</h2>
+
+<div class="table-responsive">
+    <table class="table table-hover table-bordered align-middle shadow-sm">
+      <thead class="table-teal text-white">
+      <tr class="bg-gray-800 text-white">
+        <th class="py-2 px-4 text-center">ID</th>
+        <th class="py-2 px-4 text-center">First Name</th>
+        <th class="py-2 px-4 text-center">Last Name</th>
+        <th class="py-2 px-4 text-center">Email</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      @for (employee of employees; track employee.id) {
+        <tr class="border-b">
+          <td class="py-2 px-4 text-center">{{ employee.id }}</td>
+          <td class="py-2 px-4 text-center">{{ employee.firstname }}</td>
+          <td class="py-2 px-4 text-center">{{ employee.lastname }}</td>
+          <td class="py-2 px-4 text-center">{{ employee.email }}</td>
+        </tr>
+      }
+    </tbody>
+  </table>
+</div>
+
+
+<!-- ========================================= -->
+
+<!-- CHALLENGE -->
+<h2 class="text-3xl font-bold mb-4 mt-20 mt-6 text-center">
+  PRODUCTS LIST
+</h2>
+
+<div class="table-responsive">
+    <table class="table table-hover table-bordered align-middle shadow-sm">
+      <thead class="table-teal text-white">
+      <tr class="bg-gray-800 text-white">
+        <th class="py-2 px-4 text-center">PRODUCT ID</th>
+        <th class="py-2 px-4 text-center">PRODUCT NAME</th>
+        <th class="py-2 px-4 text-center">DESCRIPTION</th>
+        <th class="py-2 px-4 text-center">PRICE</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      @for (product of products; track product.id) {
+        <tr class="border-b">
+          <td class="py-2 px-4 text-center">{{ product.id }}</td>
+          <td class="py-2 px-4 text-center">{{ product.name }}</td>
+          <td class="py-2 px-4 text-center">{{ product.description }}</td>
+          <td class="py-2 px-4 text-center">{{ product.price }}</td>
+        </tr>
+      }
+    </tbody>
+  </table>
+</div>
+
+
+<h2 class="text-3xl font-bold mb-4 mt-20 text-center">
+  PRODUCTS LIST
+</h2>
+
+<div class="mb-4 flex justify-center">
+  <input
+    type="text"
+    placeholder="Search product name..."
+    class="border rounded px-4 py-2 w-1/2"
+    (input)="onSearch($event)"
+  />
+</div>
+
+<div class="overflow-x-auto">
+  <table class="min-w-full bg-white shadow-md rounded-lg overflow-hidden">
+    <thead>
+      <tr class="bg-gray-800 text-white">
+        <th class="py-2 px-4 text-center">PRODUCT ID</th>
+        <th class="py-2 px-4 text-center">PRODUCT NAME</th>
+        <th class="py-2 px-4 text-center">DESCRIPTION</th>
+        <th class="py-2 px-4 text-center">PRICE</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      @for (product of filteredProducts; track product.id) {
+        <tr class="border-b">
+          <td class="py-2 px-4 text-center">{{ product.id }}</td>
+          <td class="py-2 px-4 text-center">{{ product.name }}</td>
+          <td class="py-2 px-4 text-center">{{ product.description }}</td>
+          <td class="py-2 px-4 text-center">{{ product.price }}</td>
+        </tr>
+      } @empty {
+        <tr>
+          <td colspan="4" class="py-4 text-center text-gray-500">
+            No matching products found
+          </td>
+        </tr>
+      }
+    </tbody>
+  </table>
+</div>
+
+
+<router-outlet />
